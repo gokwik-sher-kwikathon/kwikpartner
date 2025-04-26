@@ -1,0 +1,28 @@
+[
+  {
+    "id": "comm-1",
+    "referralId": "ref-1",
+    "partnerId": "1",
+    "amount": 15000,
+    "status": "paid",
+    "paidDate": "2025-04-22T00:00:00Z",
+    "calculationDetails": {
+      "baseRate": 0.03,
+      "tier": "standard",
+      "bonuses": 0
+    }
+  },
+  {
+    "id": "comm-2",
+    "referralId": "ref-3",
+    "partnerId": "2",
+    "amount": 17500,
+    "status": "pending",
+    "paidDate": null,
+    "calculationDetails": {
+      "baseRate": 0.05,
+      "tier": "standard",
+      "bonuses": 0
+    }
+  }
+]

@@ -1,0 +1,13 @@
+<svg width="700" height="700" viewBox="0 0 700 700" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Yellow square with rounded corners -->
+  <rect x="10" y="10" width="400" height="400" rx="80" fill="#F5C33B" />
+  
+  <!-- Yellow square shadow/gradient effect -->
+  <rect x="10" y="300" width="400" height="110" rx="0" fill="#F5A623" />
+  
+  <!-- Blue square with rounded corners -->
+  <rect x="290" y="290" width="400" height="400" rx="80" fill="#003C71" />
+  
+  <!-- Blue square shadow/gradient effect -->
+  <rect x="290" y="400" width="400" height="110" rx="0" fill="#002C51" />
+</svg>

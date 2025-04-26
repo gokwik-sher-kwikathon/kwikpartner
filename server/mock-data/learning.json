@@ -1,0 +1,86 @@
+[
+  {
+    "id": "learn-1",
+    "title": "How to Pitch GoKwik Checkout",
+    "type": "article",
+    "content": "This guide explains the key selling points of GoKwik Checkout...",
+    "tags": [
+      "checkout",
+      "sales",
+      "pitch"
+    ],
+    "relevantProducts": [
+      "checkout"
+    ],
+    "relevantVerticals": [
+      "all"
+    ],
+    "relevantRoles": [
+      "referralPartner",
+      "resellerPartner"
+    ]
+  },
+  {
+    "id": "learn-2",
+    "title": "Understanding RTO Prime for Fashion",
+    "type": "video",
+    "content": "https://example.com/videos/rto-fashion",
+    "tags": [
+      "rto",
+      "fashion",
+      "returns"
+    ],
+    "relevantProducts": [
+      "rto"
+    ],
+    "relevantVerticals": [
+      "fashion"
+    ],
+    "relevantRoles": [
+      "referralPartner",
+      "resellerPartner"
+    ]
+  },
+  {
+    "id": "learn-3",
+    "title": "Technical Integration Guide",
+    "type": "document",
+    "content": "https://example.com/docs/integration-guide",
+    "tags": [
+      "integration",
+      "technical",
+      "api"
+    ],
+    "relevantProducts": [
+      "all"
+    ],
+    "relevantVerticals": [
+      "all"
+    ],
+    "relevantRoles": [
+      "servicePartner"
+    ]
+  },
+  {
+    "id": "learn-4",
+    "title": "Commission Structure Explained",
+    "type": "article",
+    "content": "This guide explains how commissions are calculated...",
+    "tags": [
+      "commission",
+      "earnings",
+      "finance"
+    ],
+    "relevantProducts": [
+      "all"
+    ],
+    "relevantVerticals": [
+      "all"
+    ],
+    "relevantRoles": [
+      "referralPartner",
+      "resellerPartner",
+      "servicePartner"
+    ]
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "John Doe",
+    "email": "john@example.com",
+    "password": "password",
+    "role": "referralPartner",
+    "agency": "Digital Marketing Agency",
+    "contact": "+91 9876543210",
+    "profileComplete": true
+  },
+  {
+    "id": "2",
+    "name": "Jane Smith",
+    "email": "jane@example.com",
+    "password": "password",
+    "role": "resellerPartner",
+    "agency": "Tech Solutions Inc.",
+    "contact": "+91 9876543211",
+    "profileComplete": true
+  },
+  {
+    "id": "3",
+    "name": "Bob Johnson",
+    "email": "bob@example.com",
+    "password": "password",
+    "role": "servicePartner",
+    "agency": "Web Development Co.",
+    "contact": "+91 9876543212",
+    "profileComplete": true
+  }
+]

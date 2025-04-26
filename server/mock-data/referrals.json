@@ -1,0 +1,94 @@
+[
+  {
+    "id": "ref-1",
+    "partnerId": "1",
+    "brandName": "Fashion Store",
+    "contactName": "Alice Brown",
+    "contactEmail": "alice@fashionstore.com",
+    "contactPhone": "+91 9876543220",
+    "monthlyGMV": 500000,
+    "vertical": "fashion",
+    "platform": "shopify",
+    "product": "checkout",
+    "stage": "signed",
+    "stageUpdatedAt": "2025-04-20T10:30:00Z",
+    "commissionEarned": 15000,
+    "commissionPending": 0,
+    "notes": "High-end fashion brand with good potential",
+    "activities": [
+      {
+        "date": "2025-04-10T08:30:00Z",
+        "action": "Referral Created",
+        "user": "John Doe"
+      },
+      {
+        "date": "2025-04-15T14:20:00Z",
+        "action": "Demo Scheduled",
+        "user": "John Doe"
+      },
+      {
+        "date": "2025-04-20T10:30:00Z",
+        "action": "Contract Signed",
+        "user": "GoKwik Sales"
+      }
+    ]
+  },
+  {
+    "id": "ref-2",
+    "partnerId": "1",
+    "brandName": "Tech Gadgets",
+    "contactName": "David Lee",
+    "contactEmail": "david@techgadgets.com",
+    "contactPhone": "+91 9876543221",
+    "monthlyGMV": 800000,
+    "vertical": "electronics",
+    "platform": "woocommerce",
+    "product": "rto",
+    "stage": "pitch",
+    "stageUpdatedAt": "2025-04-22T09:15:00Z",
+    "commissionEarned": 0,
+    "commissionPending": 0,
+    "notes": "Interested in reducing RTO rates",
+    "activities": [
+      {
+        "date": "2025-04-22T09:15:00Z",
+        "action": "Referral Created",
+        "user": "John Doe"
+      }
+    ]
+  },
+  {
+    "id": "ref-3",
+    "partnerId": "2",
+    "brandName": "Beauty Brand",
+    "contactName": "Emma Wilson",
+    "contactEmail": "emma@beautybrand.com",
+    "contactPhone": "+91 9876543222",
+    "monthlyGMV": 350000,
+    "vertical": "beauty",
+    "platform": "magento",
+    "product": "all",
+    "stage": "ba_shared",
+    "stageUpdatedAt": "2025-04-18T16:45:00Z",
+    "commissionEarned": 0,
+    "commissionPending": 17500,
+    "notes": "Looking for full suite of solutions",
+    "activities": [
+      {
+        "date": "2025-04-12T11:30:00Z",
+        "action": "Referral Created",
+        "user": "Jane Smith"
+      },
+      {
+        "date": "2025-04-15T13:20:00Z",
+        "action": "Initial Call",
+        "user": "Jane Smith"
+      },
+      {
+        "date": "2025-04-18T16:45:00Z",
+        "action": "Business Agreement Shared",
+        "user": "GoKwik Sales"
+      }
+    ]
+  }
+]
