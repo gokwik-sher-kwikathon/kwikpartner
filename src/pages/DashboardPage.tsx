@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Row, Col, Typography, Tabs, List, Button, Tag, Space, Divider, Alert, Dropdown, Menu } from 'antd';
+import { Row, Col, Typography, Tabs, List, Button, Tag, Space, Divider, Alert, Dropdown, Menu, Tooltip } from 'antd';
 import { ElevatedCard, EnhancedStatisticCard, PageLayout, WebSocketStatus } from '../components/common';
 import {
   DollarOutlined,
@@ -17,6 +17,7 @@ import {
   MoreOutlined,
   LineChartOutlined,
   BookOutlined,
+  ThunderboltOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../context/AppContext';
@@ -63,11 +64,14 @@ const learningContent = [
   },
 ];
 
+import DynamicLeadForm from '../components/dashboard/leads/DynamicLeadForm';
+
 const DashboardPage: React.FC = () => {
   const navigate = useNavigate();
   const { state } = useApp();
   const [activeTab, setActiveTab] = useState('1');
   const [dashboardTab, setDashboardTab] = useState('1');
+  const [leadFormVisible, setLeadFormVisible] = useState(false);
 
   // 1. Commission Snapshot moved to top with AI prediction
   const renderCommissionSnapshot = () => {
@@ -235,19 +239,22 @@ const DashboardPage: React.FC = () => {
     );
   };
 
+  // Handle lead form submission
+  const handleLeadSubmit = (values: any, productType: string) => {
+    console.log('Lead submitted:', values, 'Product Type:', productType);
+    // Here you would typically send this data to your API
+  };
+
   // Quick Actions dropdown menu
   const getQuickActionsMenu = () => {
     switch (state.user?.role) {
       case 'referralPartner':
         return (
           <Menu>
-            <Menu.Item key='1' icon={<PlusOutlined />} onClick={() => navigate('/referral/form')}>
-              Submit New Lead
-            </Menu.Item>
-            <Menu.Item key='2' icon={<LineChartOutlined />} onClick={() => navigate('/referral/tracker')}>
+            <Menu.Item key='1' icon={<LineChartOutlined />} onClick={() => navigate('/referral/tracker')}>
               Track Referrals
             </Menu.Item>
-            <Menu.Item key='3' icon={<DollarOutlined />} onClick={() => navigate('/referral/commission')}>
+            <Menu.Item key='2' icon={<DollarOutlined />} onClick={() => navigate('/referral/commission')}>
               View Commissions
             </Menu.Item>
           </Menu>
@@ -283,34 +290,43 @@ const DashboardPage: React.FC = () => {
       default:
         return (
           <Menu>
-            <Menu.Item key='1' icon={<PlusOutlined />} onClick={() => navigate('/referral/form')}>
-              Submit New Lead
+            <Menu.Item key='1' icon={<LineChartOutlined />} onClick={() => navigate('/referral/tracker')}>
+              Track Referrals
             </Menu.Item>
           </Menu>
         );
     }
   };
 
-  // Quick Actions dropdown button
+  // Quick Actions icon dropdown
   const renderQuickActionsDropdown = () => {
-    const roleLabel =
-      state.user?.role === 'referralPartner'
-        ? 'Referral Partner'
-        : state.user?.role === 'resellerPartner'
-        ? 'Reseller Partner'
-        : state.user?.role === 'servicePartner'
-        ? 'Service Partner'
-        : 'Partner';
-
     return (
-      <Dropdown overlay={getQuickActionsMenu()} trigger={['click']}>
-        <Button type='primary' style={{ marginLeft: 8 }}>
-          <Space>
-            Quick Actions
-            <DownOutlined />
-          </Space>
-        </Button>
-      </Dropdown>
+      <Tooltip title='Quick Actions'>
+        <Dropdown overlay={getQuickActionsMenu()} trigger={['click']}>
+          <Button
+            type='text'
+            icon={<ThunderboltOutlined />}
+            className='quick-actions-icon'
+            style={{ fontSize: '16px' }}
+          />
+        </Dropdown>
+      </Tooltip>
+    );
+  };
+
+  // Add Lead button
+  const renderAddLeadButton = () => {
+    return (
+      <Button
+        type='primary'
+        size='large'
+        icon={<PlusOutlined />}
+        onClick={() => setLeadFormVisible(true)}
+        className='add-lead-button'
+        style={{ fontWeight: 500 }}
+      >
+        Add Lead
+      </Button>
     );
   };
 
@@ -319,12 +335,19 @@ const DashboardPage: React.FC = () => {
       title='Dashboard'
       subtitle={`Welcome back, ${state.user?.name}! Here's an overview of your partnership with GoKwik.`}
       actions={
-        <Space>
+        <Space size='middle' align='center'>
           <WebSocketStatus />
           {renderQuickActionsDropdown()}
+          {renderAddLeadButton()}
         </Space>
       }
     >
+      {/* Dynamic Lead Form Modal */}
+      <DynamicLeadForm
+        visible={leadFormVisible}
+        onCancel={() => setLeadFormVisible(false)}
+        onSubmit={handleLeadSubmit}
+      />
       {/* 1. Commission Snapshot moved to top */}
       {renderCommissionSnapshot()}
 

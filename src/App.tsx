@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import { themeConfig } from './theme/themeConfig';
 import './styles/global.css';
+import './components/dashboard/leads/LeadForms.css';
 
 // Pages
 import LoginPage from './pages/LoginPage';

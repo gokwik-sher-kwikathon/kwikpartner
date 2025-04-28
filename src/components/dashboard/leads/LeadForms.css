@@ -1,0 +1,129 @@
+/* Lead Form Styling */
+.lead-form-container .ant-modal-content {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.lead-form-container .ant-modal-header {
+  background-color: #f0f5ff;
+  border-bottom: 1px solid #d9e6ff;
+  padding: 16px 24px;
+}
+
+.lead-form-container .ant-modal-title {
+  color: #1890ff;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.lead-form-container .ant-modal-body {
+  padding: 24px;
+}
+
+.lead-form-container .ant-tabs-nav {
+  margin-bottom: 24px;
+}
+
+.lead-form-container .ant-tabs-tab {
+  padding: 12px 16px;
+}
+
+.lead-form-container .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #1890ff;
+  font-weight: 500;
+}
+
+.lead-form-container .ant-form-item-label > label {
+  font-weight: 500;
+  color: #333;
+}
+
+.lead-form-container .ant-divider-inner-text {
+  font-weight: 600;
+  color: #1890ff;
+}
+
+.lead-form-container .ant-form-item-required::before {
+  display: inline-block;
+  margin-right: 4px;
+  color: #ff4d4f;
+  font-size: 14px;
+  font-family: SimSun, sans-serif;
+  line-height: 1;
+  content: '*';
+}
+
+/* Add Lead Button Styling */
+.add-lead-button {
+  background: linear-gradient(to right, #1890ff, #096dd9);
+  border: none;
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.35);
+  transition: all 0.3s ease;
+}
+
+.add-lead-button:hover {
+  background: linear-gradient(to right, #40a9ff, #1890ff);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(24, 144, 255, 0.5);
+}
+
+.add-lead-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(24, 144, 255, 0.35);
+}
+
+/* Quick Actions Icon Styling */
+.quick-actions-icon {
+  color: #8c8c8c;
+  transition: all 0.3s ease;
+}
+
+.quick-actions-icon:hover {
+  color: #1890ff;
+  transform: scale(1.1);
+}
+
+/* Form Section Styling */
+.form-section-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1890ff;
+  margin-bottom: 16px;
+}
+
+/* Form Field Styling */
+.ant-input-number-handler-wrap {
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.ant-input-number:hover .ant-input-number-handler-wrap {
+  opacity: 1;
+}
+
+/* Switch Styling */
+.ant-switch-checked {
+  background-color: #1890ff;
+}
+
+/* Form Footer Styling */
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.form-footer .ant-btn {
+  margin-left: 8px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .lead-form-container .ant-modal {
+    max-width: 95%;
+  }
+
+  .lead-form-container .ant-form-item {
+    margin-bottom: 16px;
+  }
+}

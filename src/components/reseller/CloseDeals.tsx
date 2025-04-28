@@ -1031,7 +1031,7 @@ const CloseDeals: React.FC = () => {
         <DashboardCard title='All Deals'>{renderListView()}</DashboardCard>
       ) : (
         <Row gutter={24}>
-          <Col xs={24} md={8}>
+          <Col span={7}>
             <DashboardCard
               title={
                 <span style={{ fontSize: '16px', fontWeight: 'bold', color: chartColors.primary }}>Deal Pipeline</span>
@@ -1042,7 +1042,7 @@ const CloseDeals: React.FC = () => {
             </DashboardCard>
           </Col>
 
-          <Col xs={24} md={16}>
+          <Col span={17}>
             <DashboardCard>
               {selectedDeal ? (
                 <Tabs activeKey={activeTab} onChange={setActiveTab}>
@@ -1053,11 +1053,7 @@ const CloseDeals: React.FC = () => {
 
                     <Row gutter={[16, 16]}>
                       <Col xs={24} md={16}>
-                        <DashboardCard
-                          title='Deal Information'
-                          style={{ marginBottom: 16 }}
-                          bodyStyle={{ padding: '12px 16px' }}
-                        >
+                        <Card title='Deal Information' style={{ marginBottom: 16 }}>
                           <Row gutter={[16, 8]}>
                             <Col span={6}>
                               <Text type='secondary' style={{ fontSize: '12px' }}>
@@ -1126,12 +1122,11 @@ const CloseDeals: React.FC = () => {
                               </div>
                             </Col>
                           </Row>
-                        </DashboardCard>
+                        </Card>
 
                         <Card
                           title={<span style={{ fontSize: '16px', fontWeight: 'bold' }}>Closing Checklist</span>}
                           style={{ marginBottom: 16 }}
-                          bodyStyle={{ maxHeight: '300px', overflowY: 'auto' }}
                         >
                           <List
                             dataSource={selectedDeal.checklist}
@@ -1212,23 +1207,8 @@ const CloseDeals: React.FC = () => {
                                     avatar={getFileIcon(doc.name)}
                                     title={
                                       <Tooltip title={doc.name}>
-                                        <div
-                                          style={{
-                                            maxWidth: '180px',
-                                            whiteSpace: 'nowrap',
-                                            overflow: 'hidden',
-                                            textOverflow: 'ellipsis',
-                                          }}
-                                        >
-                                          {doc.name}
-                                        </div>
+                                        <div>{doc.name}</div>
                                       </Tooltip>
-                                    }
-                                    description={
-                                      <Text type='secondary' style={{ fontSize: '12px' }}>
-                                        {documentTypes.find((t) => t.key === doc.type)?.name} |{' '}
-                                        {new Date(doc.uploadedAt).toLocaleDateString()}
-                                      </Text>
                                     }
                                   />
                                 </List.Item>
