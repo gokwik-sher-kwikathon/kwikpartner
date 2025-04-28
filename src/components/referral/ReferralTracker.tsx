@@ -15,6 +15,7 @@ import {
   Badge,
   Tabs,
   Divider,
+  message,
 } from 'antd';
 import {
   EyeOutlined,
@@ -346,6 +347,21 @@ const ReferralTracker: React.FC = () => {
       render: (stage: string) => <Tag color={getStageColor(stage)}>{getStageDisplayName(stage)}</Tag>,
     },
     {
+      title: 'KYC',
+      key: 'kycHandling',
+      render: (text: string, record: Referral) => {
+        if (record.kycHandling === 'partner') {
+          return (
+            <Tag color='blue' icon={<CheckCircleOutlined />}>
+              Partner Assisted
+            </Tag>
+          );
+        } else {
+          return <Tag color='default'>GoKwik Handled</Tag>;
+        }
+      },
+    },
+    {
       title: 'Commission',
       key: 'commission',
       render: (text: string, record: Referral) => (
@@ -561,6 +577,29 @@ const ReferralTracker: React.FC = () => {
                     <Tag color={getStageColor(selectedReferral.stage)}>
                       {getStageDisplayName(selectedReferral.stage)}
                     </Tag>
+                  </Descriptions.Item>
+                  <Descriptions.Item label='KYC Handling'>
+                    {selectedReferral.kycHandling === 'partner' ? (
+                      <Tag color='blue' icon={<CheckCircleOutlined />}>
+                        Partner Assisted KYC
+                      </Tag>
+                    ) : (
+                      <Tag color='default'>GoKwik Handled KYC</Tag>
+                    )}
+                    {selectedReferral.kycHandling === 'partner' && (
+                      <div style={{ marginTop: 8 }}>
+                        <Button
+                          type='primary'
+                          size='small'
+                          onClick={() => {
+                            // In a real app, this would navigate to a KYC upload page
+                            message.info('KYC document upload functionality would open here');
+                          }}
+                        >
+                          Upload KYC Documents
+                        </Button>
+                      </div>
+                    )}
                   </Descriptions.Item>
                   <Descriptions.Item label='Last Updated'>
                     {new Date(selectedReferral.stageUpdatedAt).toLocaleString()}

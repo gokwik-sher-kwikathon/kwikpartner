@@ -29,6 +29,8 @@ export interface Referral {
   commissionEarned: number;
   commissionPending: number;
   notes: string;
+  kycHandling?: 'partner' | 'gokwik';
+  performKyc?: boolean;
   activities: Array<{
     date: string;
     action: string;
@@ -268,6 +270,12 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       // Mock API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
+      // Handle performKyc field
+      const { performKyc, ...restReferral } = referral as any;
+
+      // If performKyc is true, set kycHandling to 'partner'
+      const kycHandling = performKyc ? 'partner' : referral.kycHandling || 'gokwik';
+
       // Create new referral with generated ID and default values
       const newReferral: Referral = {
         id: `ref-${Date.now()}`,
@@ -275,6 +283,7 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
         stageUpdatedAt: new Date().toISOString(),
         commissionEarned: 0,
         commissionPending: 0,
+        kycHandling,
         activities: [
           {
             date: new Date().toISOString(),
@@ -282,8 +291,17 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
             user: state.user?.name || '',
           },
         ],
-        ...referral,
+        ...restReferral,
       };
+
+      // Add KYC activity if partner is handling KYC
+      if (kycHandling === 'partner') {
+        newReferral.activities.push({
+          date: new Date().toISOString(),
+          action: 'Partner KYC Assistance Enabled',
+          user: state.user?.name || '',
+        });
+      }
 
       dispatch({ type: 'ADD_REFERRAL', payload: newReferral });
       dispatch({ type: 'SET_LOADING', payload: false });

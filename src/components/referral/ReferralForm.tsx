@@ -16,6 +16,7 @@ import {
   Modal,
   Alert,
   Space,
+  Checkbox,
 } from 'antd';
 import {
   UserOutlined,
@@ -30,6 +31,7 @@ import {
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
+import KycInfoCard from './KycInfoCard';
 
 const { Title, Text, Paragraph } = Typography;
 const { Option } = Select;
@@ -43,6 +45,7 @@ const ReferralForm: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [kycHandlingModalVisible, setKycHandlingModalVisible] = useState(false);
   const [kycHandling, setKycHandling] = useState<'partner' | 'gokwik' | undefined>(undefined);
+  const [showKycInfoCard, setShowKycInfoCard] = useState(false);
 
   const handleSubmit = async (values: any) => {
     try {
@@ -80,7 +83,14 @@ const ReferralForm: React.FC = () => {
 
   // Show KYC handling modal before final submission
   const handleFinalSubmit = () => {
-    setKycHandlingModalVisible(true);
+    // If user has selected to perform KYC, set kycHandling to 'partner' directly
+    if (form.getFieldValue('performKyc')) {
+      setKycHandling('partner');
+      form.submit();
+    } else {
+      // Otherwise, show the modal to choose
+      setKycHandlingModalVisible(true);
+    }
   };
 
   // Handle KYC selection and submit the form
@@ -233,6 +243,21 @@ const ReferralForm: React.FC = () => {
           <Form.Item name='notes' label='Additional Notes'>
             <Input.TextArea rows={4} placeholder='Any additional information about the brand or requirements' />
           </Form.Item>
+
+          <Form.Item name='performKyc' valuePropName='checked'>
+            <Checkbox onChange={(e) => setShowKycInfoCard(e.target.checked)}>
+              Perform KYC on behalf of your client
+            </Checkbox>
+          </Form.Item>
+
+          {showKycInfoCard && (
+            <KycInfoCard
+              onClose={() => {
+                setShowKycInfoCard(false);
+                form.setFieldsValue({ performKyc: false });
+              }}
+            />
+          )}
         </>
       ),
     },
