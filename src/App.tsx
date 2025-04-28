@@ -32,6 +32,9 @@ import TechDocumentationPage from './pages/service/TechDocumentationPage';
 import IncentiveTrackerPage from './pages/service/IncentiveTrackerPage';
 import DeveloperGuidesPage from './pages/service/DeveloperGuidesPage';
 
+// Admin Pages
+import AdminDashboardPage from './pages/admin/AdminDashboardPage';
+
 // Context
 import { AppProvider } from './context/AppContext';
 import { WebSocketProvider } from './context/WebSocketContext';
@@ -113,6 +116,11 @@ const App = () => {
                 <Route path='docs' element={<TechDocumentationPage />} />
                 <Route path='incentives' element={<IncentiveTrackerPage />} />
                 <Route path='guides' element={<DeveloperGuidesPage />} />
+              </Route>
+
+              {/* Admin Routes */}
+              <Route path='admin'>
+                <Route path='dashboard' element={<AdminDashboardPage />} />
               </Route>
             </Route>
 

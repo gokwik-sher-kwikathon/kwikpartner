@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Modal, Tabs, Form, Button, message } from 'antd';
 import './LeadForms.css';
+// @ts-ignore - Importing components that TypeScript doesn't have declarations for
 import CheckoutLeadForm from './CheckoutLeadForm';
+// @ts-ignore - Importing components that TypeScript doesn't have declarations for
 import EngageLeadForm from './EngageLeadForm';
 
 const { TabPane } = Tabs;

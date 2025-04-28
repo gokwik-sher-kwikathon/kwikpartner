@@ -427,8 +427,11 @@ const CommissionTracker: React.FC = () => {
               value={totalEarned}
               precision={2}
               valueStyle={{ color: '#3f8600' }}
-              prefix={<DollarOutlined />}
-              suffix='₹'
+              prefix={
+                <>
+                  <DollarOutlined /> ₹
+                </>
+              }
             />
             <div style={{ marginTop: 8 }}>
               <Text type='secondary'>
@@ -444,8 +447,11 @@ const CommissionTracker: React.FC = () => {
               value={totalPending}
               precision={2}
               valueStyle={{ color: '#faad14' }}
-              prefix={<ClockCircleOutlined />}
-              suffix='₹'
+              prefix={
+                <>
+                  <ClockCircleOutlined /> ₹
+                </>
+              }
             />
             <div style={{ marginTop: 8 }}>
               <Text type='secondary'>
@@ -564,8 +570,11 @@ const CommissionTracker: React.FC = () => {
                       <Statistic
                         title='Avg. Commission'
                         value={12300}
-                        prefix={<DollarOutlined />}
-                        suffix='₹'
+                        prefix={
+                          <>
+                            <DollarOutlined /> ₹
+                          </>
+                        }
                         valueStyle={{ color: '#722ed1' }}
                       />
                     </Col>

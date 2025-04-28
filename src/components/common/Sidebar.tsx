@@ -79,8 +79,26 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onMenuClick }) => {
       },
     ];
 
+    // Admin menu items
+    const adminItems = [
+      {
+        key: 'admin',
+        label: 'GoKwik Admin',
+        type: 'group',
+        children: [
+          {
+            key: 'admin/dashboard',
+            icon: <LineChartOutlined />,
+            label: 'Admin Dashboard',
+            onClick: () => handleMenuClick('/admin/dashboard'),
+          },
+        ],
+      },
+    ];
+
     // Role-specific menu items
     const roleItems = {
+      admin: adminItems,
       referralPartner: [
         {
           key: 'referral',
@@ -348,6 +366,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onMenuClick }) => {
                   ? 'Reseller Partner'
                   : state.user?.role === 'servicePartner'
                   ? 'Service Partner'
+                  : state.user?.role === 'admin'
+                  ? 'Admin'
                   : 'Partner'}
               </Text>
             </div>

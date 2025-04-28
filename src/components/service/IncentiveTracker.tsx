@@ -415,8 +415,11 @@ const IncentiveTracker: React.FC = () => {
               value={totalEarned}
               precision={2}
               valueStyle={{ color: '#3f8600' }}
-              prefix={<DollarOutlined />}
-              suffix='₹'
+              prefix={
+                <>
+                  <DollarOutlined /> ₹
+                </>
+              }
             />
             <div style={{ marginTop: 8 }}>
               <Text type='secondary'>
@@ -432,8 +435,11 @@ const IncentiveTracker: React.FC = () => {
               value={totalPending}
               precision={2}
               valueStyle={{ color: '#faad14' }}
-              prefix={<ClockCircleOutlined />}
-              suffix='₹'
+              prefix={
+                <>
+                  <ClockCircleOutlined /> ₹
+                </>
+              }
             />
             <div style={{ marginTop: 8 }}>
               <Text type='secondary'>

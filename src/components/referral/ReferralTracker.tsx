@@ -500,8 +500,11 @@ const ReferralTracker: React.FC = () => {
             <Statistic
               title='Total Commission'
               value={referrals.reduce((sum, r) => sum + r.commissionEarned + r.commissionPending, 0)}
-              prefix={<DollarOutlined />}
-              suffix='₹'
+              prefix={
+                <>
+                  <DollarOutlined /> ₹
+                </>
+              }
             />
           </Col>
         </Row>
@@ -588,8 +591,11 @@ const ReferralTracker: React.FC = () => {
                         value={selectedReferral.commissionEarned}
                         precision={2}
                         valueStyle={{ color: '#3f8600' }}
-                        prefix={<DollarOutlined />}
-                        suffix='₹'
+                        prefix={
+                          <>
+                            <DollarOutlined /> ₹
+                          </>
+                        }
                       />
                     </Col>
                     <Col span={12}>
@@ -598,8 +604,11 @@ const ReferralTracker: React.FC = () => {
                         value={selectedReferral.commissionPending}
                         precision={2}
                         valueStyle={{ color: '#faad14' }}
-                        prefix={<ClockCircleOutlined />}
-                        suffix='₹'
+                        prefix={
+                          <>
+                            <ClockCircleOutlined /> ₹
+                          </>
+                        }
                       />
                     </Col>
                   </Row>

@@ -1,7 +1,7 @@
 import React, { createContext, useReducer, useContext, ReactNode } from 'react';
 
 // Types
-export type UserRole = 'referralPartner' | 'resellerPartner' | 'servicePartner';
+export type UserRole = 'referralPartner' | 'resellerPartner' | 'servicePartner' | 'admin';
 
 export interface User {
   id: string;
@@ -200,10 +200,10 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       // Mock user data
       const user: User = {
         id: '1',
-        name: 'John Doe',
+        name: email === 'admin@gokwik.com' ? 'Admin User' : 'John Doe',
         email,
-        role: 'referralPartner',
-        agency: 'Digital Marketing Agency',
+        role: email === 'admin@gokwik.com' ? 'admin' : 'referralPartner',
+        agency: email === 'admin@gokwik.com' ? 'GoKwik' : 'Digital Marketing Agency',
         contact: '+91 9876543210',
         profileComplete: true,
       };

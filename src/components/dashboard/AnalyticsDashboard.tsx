@@ -80,9 +80,12 @@ const AnalyticsDashboard: React.FC = () => {
             <Statistic
               title='Total Earnings'
               value={42500}
-              prefix={<DollarOutlined />}
+              prefix={
+                <>
+                  <DollarOutlined /> ₹
+                </>
+              }
               valueStyle={{ color: '#52c41a' }}
-              suffix='₹'
             />
             <div style={{ marginTop: 8 }}>
               <Text type='secondary'>
